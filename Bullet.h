@@ -6,7 +6,7 @@ class Bullet {
 public:
    
 
-    Bullet(float startX, float startY,float radius);
+    Bullet();
     void move();
     float GetBulletPosX() { return x_; };
     float GetBulletPosY() { return y_; };
