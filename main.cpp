@@ -1,5 +1,5 @@
 ﻿#include <Novice.h>
-#include "Game.h"
+#include "Scene.h"
 
 const char kWindowTitle[] = "LC1B_07_キド_シヅノ";
 
@@ -12,7 +12,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     char preKeys[256] = { 0 };
 
     // ゲームのインスタンスを作成
-    Game game;
+    Scene *scene=new Scene();
 
     // ウィンドウの×ボタンが押されるまでループ
     while (Novice::ProcessMessage() == 0) {
@@ -24,10 +24,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
         Novice::GetHitKeyStateAll(keys);
 
         // ゲームの更新
-        game.update(keys, preKeys);
+        scene->Update(keys, preKeys);
 
         // ゲームの描画
-        game.draw();
+        scene->Draw();
 
         // フレームの終了
         Novice::EndFrame();
@@ -37,7 +37,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
             break;
         }
     }
-
+    delete scene;
     // ライブラリの終了
     Novice::Finalize();
     return 0;
