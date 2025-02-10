@@ -17,4 +17,5 @@ private:
     float speed_;
     float velocityX_;
 };
+
 #endif // ENEMY_H

@@ -6,7 +6,9 @@ Enemy::Enemy(float startX, float startY, float spd, float velocity)
 }
 Enemy::~Enemy() {};
 void Enemy::move() {
-    // もしthisがnullptrであれば何も処理しない
+    if (x_ >= 1280 || x_ <= 0) {
+        velocityX_ *= -1;
+    }
     if (this == nullptr) {
         return;
     }
